@@ -29,7 +29,7 @@ console.log(
 
 app.listen(PORT, () => {
     console.log(
-    `Example app listening at http://localhost:2020}`,
+    `Example app listening at http://localhost:${PORT}}`,
     chalk.green("✓")
     );
     });
