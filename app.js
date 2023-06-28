@@ -41,29 +41,29 @@ console.log(
 app.get("/", homeController.list);
 
 app.get("/alldogs", dogsController.list);
-app.get("/alldogs", dogsController.delete);
-app.post("/alldogs", dogsController.update);
-app.get("/alldogs", dogsController.edit);
+app.get("/alldogs/delete/:id", dogsController.delete);
+app.post("/alldogs/update/:id", dogsController.update);
+app.get("/alldogs/edit/:id", dogsController.edit);
 
 app.get("/canada", canadaController.list);
-app.get("/canada", canadaController.delete);
-app.post("/canada", canadaController.update)
-app.get("/canada", canadaController.edit);
+app.get("/canada/delete/:id", canadaController.delete);
+app.post("/canad/update/:ida", canadaController.update)
+app.get("/canada/edit/:id", canadaController.edit);
 
 app.get("/china", chinaController.list);
-app.get("/china", chinaController.delete);
-app.post("/china", chinaController.update)
-app.get("/china", chinaController.edit);
+app.get("/china/delete/:id", chinaController.delete);
+app.post("/china/update/:id", chinaController.update)
+app.get("/china/edit/:id", chinaController.edit);
 
 app.get("/england", englandController.list);
-app.get("/england", englandController.delete);
-app.post("/england", englandController.update)
-app.get("/england", englandController.edit);
+app.get("/england/delete/:id", englandController.delete);
+app.post("/england/update/:id", englandController.update)
+app.get("/england/edit/:id", englandController.edit);
 
 app.get("/germany", germanyController.list);
-app.get("/germany", germanyController.delete);
-app.post("/germany", germanyController.update)
-app.get("/germany", germanyController.edit);
+app.get("/germany/delete/:id", germanyController.delete);
+app.post("/germany/update/:id", germanyController.update)
+app.get("/germany/edit/:id", germanyController.edit);
 
 
 
