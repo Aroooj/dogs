@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const chalk = require("chalk");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
+const User = require("./models/User");
 
 
 const app = express();
@@ -14,10 +15,11 @@ app.set('view engine', 'ejs');
 const homeController = require("./controllers/home")
 const dogsController = require("./controllers/dogs")
 const canadaController = require("./controllers/canada")
-const chinaController = require("./controllers/china")
+const chinaController = require("./controllers/china.js")
 const englandController = require("./controllers/england")
 const germanyController = require("./controllers/germany")
 const dogsSearchController = require("./controllers/api/searched_dogs")
+const userController = require("./controllers/user")
 
 
 
@@ -37,6 +39,8 @@ console.log(
  );
  process.exit();
 });
+
+
 
 app.get("/", homeController.list);
 
@@ -64,6 +68,13 @@ app.get("/germany", germanyController.list);
 app.get("/germany/delete/:id", germanyController.delete);
 app.post("/germany/update/:id", germanyController.update)
 app.get("/germany/edit/:id", germanyController.edit);
+
+app.get("/search-dogs",(req,res) => {
+    res.render('search-dogs', dogsSearchController);
+  });
+  app.get("/api/searched_dogs", dogsSearchController.list);
+
+
 
 
 

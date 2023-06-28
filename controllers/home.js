@@ -6,12 +6,12 @@ exports.list = async (req, res) => {
 
         const allDogs = await Dogs.find({}).count();
         const allFurs = await Dogs.aggregate([
-            { $group: { _id: "$Fur", total: { $sum: 1}}},
+            { $group: { _id: "$Fur Color", total: { $sum: 1}}},
             { $count: "total"}
         ])
 
         const allOrigins = await Dogs.aggregate([
-            { $group: { _id:"$Origin", total: { $sum: 1}}},
+            { $group: { _id:"$Country of Origin", total: { $sum: 1}}},
             { $count: "total"}
         ])
 
