@@ -8,4 +8,4 @@ const brandSchema = new Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Fur Color", brandSchema)
+module.exports = mongoose.model("Fur", brandSchema)

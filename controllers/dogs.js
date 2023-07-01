@@ -7,6 +7,7 @@ exports.list = async (req, res) => {
     const message = req.query.message
     const dogs = await Dogs.find({});
     res.render("alldogs", { dogs: dogs, message: message });
+    console.log("all dogs")
   } catch (e) {
     res.status(404).send({ message: "could not list dogs" });
   }

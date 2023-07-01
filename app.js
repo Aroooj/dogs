@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 const homeController = require("./controllers/home")
 const dogsController = require("./controllers/dogs")
 const canadaController = require("./controllers/canada")
-const chinaController = require("./controllers/china.js")
+const chinaController = require("./controllers/china")
 const englandController = require("./controllers/england")
 const germanyController = require("./controllers/germany")
 const dogsSearchController = require("./controllers/api/searched_dogs")
@@ -40,7 +40,30 @@ console.log(
  process.exit();
 });
 
+//Middleware//
+app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(expressSession({ secret: 'woof treat', cookie: { expires: new Date(253402300000000) } }))
+
+
+app.use("*", async (req, res, next) => {
+  global.user = false;
+  if (req.session.userID && !global.user) {
+    const user = await User.findById(req.session.userID);
+    global.user = user;
+  }
+  next();
+})
+
+const authMiddleware = async (req, res, next) => {
+  const user = await User.findById(req.session.userID);
+  if (!user) {
+    return res.redirect('/');
+  }
+  next()
+}
 
 app.get("/", homeController.list);
 
@@ -75,7 +98,29 @@ app.get("/search-dogs",(req,res) => {
   app.get("/api/searched_dogs", dogsSearchController.list);
 
 
-
+  app.get("/login", (req, res) => {
+    res.render('login', { errors: {} })
+  });
+  app.post("/login", userController.login);
+  
+  app.get("/register", (req, res) => {
+    res.render('register', { errors: {} })
+  });
+  app.post("/register", userController.create);
+  
+  app.get("/logout", async (req, res) => {
+    req.session.destroy();
+    global.user = false;
+    res.redirect('/');
+  })
+  
+  app.get("/create-dogs", authMiddleware, (req, res) => {
+    res.render("create-dogs", { errors: {} });
+  });
+  app.post("/create-dogs", dogsController.create);
+  
+  
+  
 
 
 app.listen(PORT, () => {

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="description" content="" />
+      <title>Create a new Doggo</title>
+
+      <link
+        rel="canonical"
+        href="https://getbootstrap.com/docs/4.5/examples/album/"
+      />
+
+      <!-- Bootstrap core CSS -->
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous"
+      />
+
+      <link href="css/album.css" rel="stylesheet" />
+    </head>
+    <body>
+      <%- include('common/header'); -%>
+      
+      
+      
+      <div class="container">
+        <h1 class="text-center">Add a new dog to the database</h1>
+        <div class="row justify-content-md-center">
+          <div class="col-">
+            <form method="POST" action="/create-dogs">
+              <div class="form-group">
+                <label for="title">Dog Breed</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Dog_name"
+                  name="Dog_name"
+                  placeholder="Enter Dog Breed"
+                />
+
+                <% if (errors['Dog_name']) { %>
+                <p style="color: red"><%= errors['Dog_name'].message %></p>
+                <% } %>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="platform">Origin</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Origin"
+                      name="Origin"
+                      placeholder="Enter the Country of Origin"
+                    />
+    
+                    <% if (errors['Origin']) { %>
+                    <p style="color: red"><%= errors['Origin'].message %></p>
+                    <% } %>
+
+                    <br>
+
+                <div class="form-group">
+                    <label for="fur">Fur</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="Fur"
+                        name="Fur"
+                        placeholder="Enter the Fur Color"
+                    />
+        
+                    <% if (errors['Fur']) { %>
+                    <p style="color: red"><%= errors['Fur'].message %></p>
+                    <% } %>
+                
+                    <br>
+
+                <div class="form-group">
+                    <label for="Height">Height</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="Height"
+                        name="Height"
+                        placeholder="Enter Height in inches"
+                    />
+            
+                    <% if (errors['Height']) { %>
+                    <p style="color: red"><%= errors['Height'].message %></p>
+                    <% } %>
+                
+                    <br>
+
+                <div class="form-group">
+                    <label for="Color">Color of eyes</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="Color"
+                        name="Color"
+                        placeholder="Enter Color of Eyes"
+                    />
+                
+                    <% if (errors['Color']) { %>
+                    <p style="color: red"><%= errors['Color'].message %></p>
+                    <% } %>
+                
+                    <br>
+
+                <div class="form-group">
+                    <label for="Longevity">Longevity</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="Longevity"
+                        name="Longevity"
+                        placeholder="Enter the Longevity"
+                    />
+                    
+                    <% if (errors['Longevity']) { %>
+                    <p style="color: red"><%= errors['Longevity'].message %></p>
+                    <% } %>
+
+                    <br>
+
+                <div class="form-group">
+                    <label for="Traits">Traits</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="Traits"
+                        name="Traits"
+                        placeholder="Enter some traits"
+                    />
+                        
+                    <% if (errors['Traits']) { %>
+                    <p style="color: red"><%= errors['Traits'].message %></p>
+                    <% } %>
+              
+                    <br>
+
+                <div class="form-group">
+                        <label for="Health_problems">Health Problems</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="Health_problems"
+                            name="Health_problems"
+                            placeholder="Enter any Health problems"
+                        />
+                            
+                        <% if (errors['Health_problems']) { %>
+                        <p style="color: red"><%= errors['Health_problems'].message %></p>
+                        <% } %>
+                  
+                        <br>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <%- include('common/footer'); -%>
+    </body>
+  </html>
+</html>

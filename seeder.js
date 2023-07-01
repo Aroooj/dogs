@@ -6,9 +6,7 @@ const loading = require("loading-cli");
 const { MONGODB_URI } = process.env;
 
 
-/**
- * constants
- */
+
 const client = new MongoClient(MONGODB_URI);
 
 async function main() {

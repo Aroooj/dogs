@@ -8,4 +8,4 @@ const originSchema = new Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Country of Origin", originSchema);
+module.exports = mongoose.model("Origin", originSchema);
