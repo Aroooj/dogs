@@ -15,12 +15,12 @@ const dogsView = (dogs) => `
         </div>
       </div>
  </div>
-`;
+`
 
 
-const handleClick = async () => {
+const clickHandler = async () => {
     const searchDogsVal = document.querySelector("#searchInput").value;
-    const dogsDomRef = document.querySelector('#dogsItems')
+    const dogsDomRef = document.querySelector("#dogsItems")
 
     try {
 

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <html lang="en">
-    <head>
 
-        <script src="/scripts/search-dogs.js"></script>
+    <head>
+      
+      <script defer src="/public/scripts/search-dogs.js" type="text/html"></script>
+
 
       <meta charset="utf-8" />
       <meta
@@ -11,7 +13,7 @@
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="description" content="" />
-      <title>Dogs Database</title>
+      <title>Search a dog</title>
 
       <link
         rel="canonical"
@@ -26,13 +28,13 @@
         crossorigin="anonymous"
       />
       <link href="css/album.css" rel="stylesheet" />
-      
+
     </head>
     <body>
       <%- include('common/header'); -%>
 
       <div class="container">
-        <h1 class="text-center"> Searching for Origin</h1>
+        <h1 class="text-center"> Searching For A Dog</h1>
         <form>
         <div class="input-group mb-3">
                 <input
@@ -42,13 +44,12 @@
                 id="searchInput"
                 />
                 <div class="input-group-append">
-                    <button onclick="handleClick()" class="btn btn-outline-secondary" type="button">
-                         Search for Dog 
+                    <button onclick="clickHandler()" class="btn btn-outline-secondary" type="button">
+                         Search 
                     </button>
                 </div>
             </form>
         </div>
-            
             
 
          <div id="dogsItems"></div>

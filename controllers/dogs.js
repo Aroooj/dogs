@@ -31,7 +31,7 @@ exports.edit = async (req, res) => {
   const id = req.params.id;
   try{
       const dogs = await Dogs.findById(id);
-      res.render('update-dogs', { dogs: dogs, id: id});
+      res.render('../views/update-dogs', { dogs: dogs, id: id});
   } catch (e) {
       res.status(404).send({
           message: `could not find dogs ${id}`
@@ -62,7 +62,7 @@ exports.create = async (req, res) => {
         Color: req.body.Color,
         Longevity: req.body.Longevity,
         Traits: req.body.Traits,
-        Health_problems: req.body.Health_problems
+        Health_Problems: req.body.Health_Problems
       });
     await dogs.save();
     res.redirect('/alldogs')

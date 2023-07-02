@@ -18,7 +18,7 @@ const canadaController = require("./controllers/canada")
 const chinaController = require("./controllers/china")
 const englandController = require("./controllers/england")
 const germanyController = require("./controllers/germany")
-const dogsSearchController = require("./controllers/api/searched_dogs")
+const dogsApiController = require("./controllers/api/searched-dogs")
 const userController = require("./controllers/user")
 
 
@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(expressSession({ secret: 'woof treat', cookie: { expires: new Date(253402300000000) } }))
+app.use(expressSession({ secret: 'foo bar', cookie: { expires: new Date(253402300000000) } }))
 
 
 app.use("*", async (req, res, next) => {
@@ -69,12 +69,12 @@ app.get("/", homeController.list);
 
 app.get("/alldogs", dogsController.list);
 app.get("/alldogs/delete/:id", dogsController.delete);
-app.post("/alldogs/update/:id", dogsController.update);
 app.get("/alldogs/edit/:id", dogsController.edit);
+app.post("/alldogs/update/:id", dogsController.update);
 
 app.get("/canada", canadaController.list);
 app.get("/canada/delete/:id", canadaController.delete);
-app.post("/canad/update/:ida", canadaController.update)
+app.post("/canada/update/:id", canadaController.update)
 app.get("/canada/edit/:id", canadaController.edit);
 
 app.get("/china", chinaController.list);
@@ -82,7 +82,7 @@ app.get("/china/delete/:id", chinaController.delete);
 app.post("/china/update/:id", chinaController.update)
 app.get("/china/edit/:id", chinaController.edit);
 
-app.get("/england", englandController.list);
+app.get("/england", englandController.list); 
 app.get("/england/delete/:id", englandController.delete);
 app.post("/england/update/:id", englandController.update)
 app.get("/england/edit/:id", englandController.edit);
@@ -93,9 +93,9 @@ app.post("/germany/update/:id", germanyController.update)
 app.get("/germany/edit/:id", germanyController.edit);
 
 app.get("/search-dogs",(req,res) => {
-    res.render('search-dogs', dogsSearchController);
+    res.render('search-dogs', dogsApiController);
   });
-  app.get("/api/searched_dogs", dogsSearchController.list);
+  app.get("/api/searched-dogs", dogsApiController.list);
 
 
   app.get("/login", (req, res) => {

@@ -6,19 +6,19 @@ const dogSchema = new mongoose.Schema(
     Dog_name: String,
     Origin: String,
     Fur: String,
-    Height: Number,
+    Height: String,
     Color: String,
-    Longevity: Number,
+    Longevity: String,
     Traits: String,
     Health_Problems: String,
 
-    fur_id: {
+    Fur_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Fur Color",
+      ref: "Fur",
     },
     Origin_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Country of Origin",
+      ref: "Origin",
     },
 
   },
