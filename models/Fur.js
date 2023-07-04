@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const brandSchema = new Schema(
+const furSchema = new Schema(
     {
         name: { type: String, required: [true, 'Name is required'] },
     },
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Fur", brandSchema)
+module.exports = mongoose.model("Fur", furSchema)

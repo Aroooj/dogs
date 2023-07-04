@@ -18,7 +18,7 @@ const dogsView = (dogs) => `
 `
 
 
-const clickHandler = async () => {
+async function clickHandler() {
     const searchDogsVal = document.querySelector("#searchInput").value;
     const dogsDomRef = document.querySelector("#dogsItems")
 

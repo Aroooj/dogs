@@ -69,7 +69,7 @@ app.get("/", homeController.list);
 
 app.get("/alldogs", dogsController.list);
 app.get("/alldogs/delete/:id", dogsController.delete);
-app.get("/alldogs/edit/:id", dogsController.edit);
+app.get("/alldogs/update/:id", dogsController.edit);
 app.post("/alldogs/update/:id", dogsController.update);
 
 app.get("/canada", canadaController.list);
@@ -93,7 +93,7 @@ app.post("/germany/update/:id", germanyController.update)
 app.get("/germany/edit/:id", germanyController.edit);
 
 app.get("/search-dogs",(req,res) => {
-    res.render('search-dogs', dogsApiController);
+    res.render("search-dogs", dogsApiController);
   });
   app.get("/api/searched-dogs", dogsApiController.list);
 
