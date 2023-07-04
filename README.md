@@ -1,6 +1,6 @@
 <h1>How to run the project</h1>
-Clone this repo
-Install the dependencies - npm install
-Rename .env.example to .env.
-Then run the seeder to populate the database - node seeder
-Run the project - npm run dev
+- Clone this repo<br>
+- Install the dependencies - npm install<br>
+- Rename .env.example to .env.<br>
+- Then run the seeder to populate the database - node seeder<br>
+- Run the project - npm run dev<br>
